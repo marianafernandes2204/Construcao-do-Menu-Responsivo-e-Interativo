@@ -1,4 +1,223 @@
-html {
-  height: 100%;
+/* Reset básico */
+* { 
+  margin: 0; /* Remove margem padrão de todos os elementos */
+  padding: 0; /* Remove o preenchimento padrão */
+  box-sizing: border-box; /* Faz com que o padding e border não aumentem o tamanho total do elemento */
+}
+
+body {
+  background-color: black; /* Fundo preto para o site */
+  color: white; /* Texto branco */
+  font-family: Arial, sans-serif; /* Define a fonte */
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo do cabeçalho */
+.header {
+  background-color: #17084f; /* Cor de fundo do cabeçalho */
+  color: white; /* Cor do texto */
+  font-weight: bold; /* Texto em negrito */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Espaçamento interno */
+  width: 100%; /* Ocupa toda a largura da tela */
+  position: relative; /* Permite posicionar elementos filhos como o botão hambúrguer */
+}
+
+.header h1 {
+  font-size: 4vw; /* Tamanho da fonte responsivo */
+  transition: font-size 0.3s ease; /* Suaviza mudanças de tamanho */
+}
+
+/* Botão hambúrguer */
+.hamburguer-menu {
+  display: none; /* Esconde por padrão (só aparece no mobile) */
+  font-size: 30px; /* Tamanho do ícone */
+  cursor: pointer; /* Mostra cursor de clique */
+  color: white; /* Cor do ícone */
+  position: absolute; /* Posicionamento dentro do cabeçalho */
+  top: 15px; /* Distância do topo */
+  left: 15px; /* Distância da esquerda */
+  background-color: #17084f; /* Fundo do botão */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 5px; /* Cantos arredondados */
+}
+
+/* Menu horizontal */
+.sidebar-menu {
+  display: flex; /* Layout em linha */
+  justify-content: center; /* Centraliza os itens */
+  gap: 20px; /* Espaço entre os botões */
+  width: 70%; /* Largura do menu */
+  margin: 30px auto; /* Espaçamento vertical e centralização horizontal */
+}
+
+/* Estilo dos botões */
+.btn {
+  padding: 15px 30px; /* Espaçamento interno */
+  background-color: #17084f; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  border: none; /* Remove bordas */
+  cursor: pointer; /* Cursor de clique */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: background-color 0.3s ease; /* Suaviza a mudança de cor */
+  border-radius: 10px; /* Cantos arredondados */
+  min-width: 150px; /* Largura mínima */
+  text-align: center; /* Centraliza o texto */
+}
+
+.btn:hover {
+  background-color: #2612ba; /* Cor ao passar o mouse */
+}
+
+/* Submenu (dropdown) - oculto por padrão */
+.submenu {
+  display: none; /* Começa invisível */
+  list-style: none; /* Remove os marcadores da lista */
+  position: absolute; /* Posicionamento em relação ao botão */
+  background: #121212; /* Cor de fundo */
+  padding: 5px; /* Espaçamento interno */
+  border-radius: 5px; /* Cantos arredondados */
   width: 100%;
+  min-width: 150px; /* Largura mínima */
+  text-align: center; /* Centraliza texto */
+  left: 50%;
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  z-index: 1000; /* Coloca acima de outros elementos */
+}
+
+.submenu li {
+  padding: 10px; /* Espaço entre os itens */
+  width: 100%;
+}
+
+.submenu a {
+  text-decoration: none; /* Remove sublinhado */
+  color: white; /* Cor do texto */
+  display: block; /* Ocupa toda a linha */
+  padding: 10px; /* Espaçamento */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.submenu a:hover {
+  background-color: #200bc1; /* Cor ao passar o mouse */
+}
+
+/* Exibe submenu quando o mouse passa sobre o item */
+.menu-item {
+  position: relative; /* Necessário para posicionar o submenu */
+}
+
+.menu-item:hover .submenu {
+  display: block; /* Exibe o submenu */
+}
+
+/* Botão de voltar */
+.back-button {
+  position: absolute; /* Posicionamento livre */
+  top: 15px; /* Distância do topo */
+  left: 15px; /* Distância da esquerda */
+  padding: 10px 15px; /* Espaçamento */
+  background-color: #0d0630; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  text-decoration: none; /* Remove sublinhado */
+  border-radius: 8px; /* Arredonda cantos */
+  font-size: 16px; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Suaviza mudanças */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+.back-button:hover {
+  background-color: #25145f; /* Cor ao passar o mouse */
+  transform: scale(1.1); /* Leve aumento no hover */
+}
+
+/* Conteúdo principal */
+.content {
+  display: flex; /* Layout flexível */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  height: 90vh; /* Altura quase total da tela */
+  text-align: justify; /* Justifica o texto */
+  padding-right: 30px; /* Espaço à direita */
+  font-size: clamp(0.8rem, 2.5vw, 3rem); /* Tamanho responsivo do texto */
+  line-height: 1.6; /* Espaçamento entre linhas */
+}
+
+strong {
+  font-weight: bold; /* Negrito para destaque */
+  color: #00e1ff; /* Azul neon para palavras em destaque */
+}
+
+/* Imagens responsivas */
+.responsive-img {
+  max-width: 100%; /* Largura máxima da imagem */
+  height: auto; /* Altura proporcional */
+  display: block; /* Torna imagem um bloco */
+  margin: 0 auto; /* Centraliza imagem */
+  aling-items: flex-start; /* (Possível erro de digitação: o correto seria align-items) */
+}
+
+/* Responsividade para telas menores que 768px */
+@media (max-width: 768px) {
+  .sidebar-menu {
+    display: none; /* Esconde o menu inicialmente no mobile */
+    flex-direction: column; /* Organiza os botões em coluna */
+    position: absolute; /* Posicionamento relativo ao cabeçalho */
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o menu */
+    background: #000; /* Fundo preto */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
+  }
+
+  .header h1 {
+    font-size: 1.2rem; /* Fonte maior no mobile */
+  }
+
+  .sidebar-menu.active {
+    display: flex; /* Exibe o menu ao clicar */
+    right: 0;
+  }
+
+  .hamburguer-menu {
+    display: block; /* Mostra o botão hambúrguer */
+  }
+
+  /* Submenu adaptado para mobile */
+  .submenu {
+    position: static; /* Fluxo normal da página */
+    width: 100%;
+    transform: none;
+    background: none;
+    text-align: center;
+    padding: 0;
+  }
+
+  .submenu li {
+    text-align: center;
+    padding: 5px;
+  }
+
+  .submenu a {
+    padding: 8px;
+  }
+
+  .menu-item .submenu {
+    display: none; /* Esconde submenu inicialmente */
+  }
+
+  .menu-item.active .submenu {
+    display: block; /* Exibe submenu ao clicar */
+  }
+}
+
+/* Responsividade para telas muito pequenas (ex: celulares antigos) */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 8vw; /* Fonte ainda maior para legibilidade */
+  }
 }
